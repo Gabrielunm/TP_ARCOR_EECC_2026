@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.env/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright / temp screenshots
+.playwright-mcp/
+*.png
+!logo-grupo-arcor.png
+
+# SDD artifacts
+.atl/
+openspec/
+
+# Old versions & markdown
+*.md
