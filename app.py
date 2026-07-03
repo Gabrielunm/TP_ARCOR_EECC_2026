@@ -92,7 +92,7 @@ SLIDE_CSS = """
     .stTabs [data-baseweb="tab-panel"] {
         height: calc(100vh - 180px);
         max-height: calc(100vh - 180px);
-        overflow: hidden;
+        overflow-y: auto;
         padding: 1rem;
         background-color: white;
         border: 1px solid #e2e8f0;
@@ -139,9 +139,15 @@ SLIDE_CSS = """
     }
     
     /* Ocultar footer de Streamlit */
-    footer {
-        display: none;
-    }
+    footer { display: none; }
+    
+    /* Ocultar header de Streamlit Cloud y toolbar */
+    [data-testid="stHeader"] { display: none; }
+    [data-testid="stDecoration"] { display: none; }
+    #MainMenu { display: none; }
+    .stDeployButton { display: none; }
+    [data-testid="stToolbar"] { display: none; }
+    header[data-testid="stHeader"] { display: none; }
     
     /* Logo mas compacto */
     .stImage {
