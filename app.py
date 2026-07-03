@@ -141,12 +141,10 @@ SLIDE_CSS = """
     /* Ocultar footer de Streamlit */
     footer { display: none; }
     
-    /* Ocultar header decorativo de Streamlit Cloud */
-    [data-testid="stHeader"] { display: none; }
+    /* Ocultar elementos decorativos (no el boton sidebar) */
     [data-testid="stDecoration"] { display: none; }
     #MainMenu { display: none; }
     .stDeployButton { display: none; }
-    header[data-testid="stHeader"] { display: none; }
     
     /* Logo mas compacto */
     .stImage {
