@@ -177,6 +177,7 @@ with st.sidebar:
         [
             "Presentación",
             "Rentabilidad",
+            "Liquidez",
             "Endeudamiento",
             "Variaciones",
             "Conclusión",
@@ -197,15 +198,18 @@ def main():
             render_slide_2(data, st.container())
 
     elif section == "Rentabilidad":
-        tabs = st.tabs(["Rentabilidad", "Liquidez", "Cap. Trabajo + OCF", "Rotación"])
+        tabs = st.tabs(["Rentabilidad", "Rotación"])
         with tabs[0]:
             render_slide_3(data, st.container())
         with tabs[1]:
-            render_slide_4(data, st.container())
-        with tabs[2]:
-            render_slide_5(data, st.container())
-        with tabs[3]:
             render_slide_10(data, st.container())
+
+    elif section == "Liquidez":
+        tabs = st.tabs(["Liquidez", "Cap. Trabajo + OCF"])
+        with tabs[0]:
+            render_slide_4(data, st.container())
+        with tabs[1]:
+            render_slide_5(data, st.container())
 
     elif section == "Endeudamiento":
         tabs = st.tabs(["Endeudamiento", "Apalancamiento"])

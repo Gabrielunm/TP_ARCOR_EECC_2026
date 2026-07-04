@@ -31,7 +31,8 @@ SLIDE_TITLES = {
     6: "Estructura de Capital y Paradoja Inflacionaria",
     7: "Apalancamiento y Coberturas Financieras",
     8: "Variaciones Patrimoniales, Actividad y Comparativa de Mercado",
-    9: "Autofinanciación, Limitaciones y Dictamen de Inversión",
+    9: "Limitaciones y Dictamen de Inversión",
+    10: "Rotación y Eficiencia Operativa",
 }
 
 EXCEL_PATH = "balances_ARCOR.xlsx"

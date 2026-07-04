@@ -34,4 +34,13 @@ Thumbs.db
 openspec/
 
 # Old versions & markdown
-*.md
+diseno_diapositivas_arcor_v2.md
+diseno_diapositivas_arcor_v3.md
+guia_exposicion_arcor_v6.md
+
+# Generated docs
+*.docx
+
+# Screenshots
+capturas/
+guia_exposicion_arcor_v7.md
