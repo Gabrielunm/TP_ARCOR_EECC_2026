@@ -214,12 +214,12 @@ def render_slide_integracion(data, container):
 
         with col1:
             st.markdown("""
-- **Cartocor, Zucamor, Converflex** — producen sus propios envases, cartón y packaging (~22% ventas)
-- **Bagley** (51% Arcor + Danone) — galletitas y cereales, líder en Latinoamérica (~23% ventas)
+- **Cartocor, Zucamor, Converflex** — producen sus propios envases, cartón y packaging
+- **Bagley** (51% Arcor + Danone) — galletitas y cereales, líder en Latinoamérica
 - **La Campagnola** — conservas, dulces, salsas y puré de tomates
 - **Mastellone Hnos.** (43%) — lácteos (La Serenísima)
-- **Agronegocios propios** — materia prima desde el campo hasta el producto final (~14% ventas)
-- **Golosinas y Chocolates** — caramelos duros, chicles, chocolates (~32% ventas, líder mundial)
+- **Agronegocios propios** — materia prima desde el campo hasta el producto final
+- **Golosinas y Chocolates** — caramelos duros, chicles, chocolates (líder mundial)
             """)
 
         with col2:
