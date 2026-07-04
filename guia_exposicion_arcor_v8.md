@@ -40,7 +40,8 @@
 **Grupo Arcor:**
 - **Rubro:** Alimentación — alimentos de consumo masivo, agronegocios y packaging
 - **Fundación:** 1951 en Arroyito, Córdoba
-- **Presencia global:** 49 plantas, +20.000 empleados, exporta a +100 países
+- **Presencia global:** 49 plantas, +20.000 empleados, exporta a +120 países
+- **Líder mundial en caramelos duros** — produce +2 millones de kilos al año
 - **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley
 - **Calificación:** Fix SCR AAA(arg)
 

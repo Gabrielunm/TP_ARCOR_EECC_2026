@@ -188,10 +188,10 @@ def render_slide_empresa(data, container):
 - **Rubro:** Alimentación — alimentos de consumo masivo, agronegocios y packaging
 - **Fundación:** 1951 en Arroyito, Córdoba (conjunción de *Ar*royito + *Cór*doba)
 - **Presencia global:** 49 plantas industriales, oficinas en 4 continentes, +20.000 empleados
-- **Exporta a más de 100 países** — principal exportador de golosinas de Argentina, Chile y Perú
+- **Líder mundial en caramelos duros** — produce +2 millones de kilos al año, exporta a más de 120 países
+- **Principal exportador de golosinas** de Argentina, Chile y Perú
 - **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley (51% Danone)
 - **Calificación:** Fix SCR AAA(arg) — máxima calidad crediticia en Argentina
-
         """)
 
         st.info("**¿Por qué analizamos ARCOR?**  \n"
