@@ -149,25 +149,32 @@ def render_slide_1(data, container):
                             use_container_width=True,
                         )
 
-        st.markdown("### Análisis de Estados Contables")
+        st.markdown("### Análisis de Estados Contables — ARCOR S.A.I.C.")
         st.caption(
             "Evaluación de Riesgo Crediticio e Inversión en "
             "Obligaciones Negociables (Clases 5 y 6)"
         )
 
-        # Metadata compacta en 3 columnas
-        col_a, col_b, col_c = st.columns(3)
+        st.markdown(
+            f"<div style='text-align:center; background:{COLORS['navy']}; "
+            f"padding:0.8rem; border-radius:8px; margin:0.8rem 0;'>"
+            f"<h2 style='color:white; margin:0; font-size:1.6rem;'>"
+            f"Período 2019 — 2025*</h2>"
+            f"<p style='color:#e2e8f0; margin:0; font-size:0.9rem;'>"
+            f"enero-septiembre · valores en moneda homogénea (RT6)</p>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
+
+        # Metadata compacta
+        col_a, col_b = st.columns(2)
         with col_a:
-            st.markdown("**RAZÓN SOCIAL** ARCOR S.A.I.C.  \n**CUIT** 30-50279317-5")
+            st.markdown("**CUIT** 30-50279317-5  \n**DESTINATARIO** Acreedores Financieros")
         with col_b:
-            st.markdown("**FECHA** 20/06/2026  \n**DESTINATARIO** Acreedores Financieros")
-        with col_c:
             st.markdown(
                 "**ANALISTAS** Arpires Anael, Galván Ariadna, "
                 "Godoy Karla, Lopez Natalia, Quiroga Gabriel"
             )
-
-        st.caption("Período 2019 — 2025* (enero-septiembre)")
 
     _render_footer(container)
 
@@ -232,6 +239,11 @@ def render_slide_2(data, container):
             "- 2019: **33,11** — 2024: **1,22**\n\n"
             "**Nota**: Todos los importes monetarios están "
             "expresados en millones de pesos ($M)."
+        )
+
+        st.warning(
+            "**Limitación:** 2025* corresponde solo a los primeros 9 meses "
+            "(enero-septiembre), según balance intermedio acumulado al 30/09/2025."
         )
 
     _render_footer(container)
@@ -1025,11 +1037,6 @@ def render_slide_9(data, container):
             """)
 
         with col_seal:
-            st.warning(
-                "Balance 2025* = corte 9 meses. "
-                "ARCOR revierte pérdida 2024: utilidad $213.528M (6% ventas)."
-            )
-
             st.markdown(
                 f"<div style='text-align:center; background:#f8fafc; "
                 f"padding:1rem; border-radius:8px; "
