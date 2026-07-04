@@ -176,37 +176,16 @@ def render_slide_1(data, container):
 
 def render_slide_2(data, container):
     with container:
-        left, right = st.columns([1, 1])
-
-        with left:
-            st.subheader("Síntesis del Informe")
-            st.markdown("""
-- Margen EBITDA estable 8%–13% (2019–2025*)
-- Tendencia sostenida de reducción de endeudamiento
-- Solvencia sólida: 0,57 en 2025*
-- Liquidez Corriente recuperada a 1,51x
-- Capital de Trabajo positivo récord: $857.035M
-- Deuda Financiera/EBITDA segura: 2,79x
-- **Recomendación Favorable — Bajo Riesgo Crediticio**
-            """)
-
-            c1, c2 = st.columns(2)
-            with c1:
-                st.info("Fix SCR — **AAA(arg)**")
-            with c2:
-                st.info("Moody's Local Argentina")
-
-        with right:
-            st.subheader("Metodología RT6")
-            st.info(
-                "Reexpresión a moneda homogénea de septiembre 2025* "
-                "mediante RT6 (FACPCE).\n\n"
-                "**Importe Homogéneo = Importe Histórico × Índice de Reexpresión**\n\n"
-                "Coeficientes AXI al 30/09/2025:\n"
-                "- 2019: **33,11** — 2024: **1,22**\n\n"
-                "**Nota**: Todos los importes monetarios están "
-                "expresados en millones de pesos ($M)."
-            )
+        st.subheader("Metodología RT6")
+        st.info(
+            "Reexpresión a moneda homogénea de septiembre 2025* "
+            "mediante RT6 (FACPCE).\n\n"
+            "**Importe Homogéneo = Importe Histórico × Índice de Reexpresión**\n\n"
+            "Coeficientes AXI al 30/09/2025:\n"
+            "- 2019: **33,11** — 2024: **1,22**\n\n"
+            "**Nota**: Todos los importes monetarios están "
+            "expresados en millones de pesos ($M)."
+        )
 
     _render_footer(container)
 
@@ -945,6 +924,19 @@ def render_slide_8(data, container):
 
 def render_slide_9(data, container):
     with container:
+        st.subheader("Síntesis del Análisis")
+        st.markdown("""
+- **Margen EBITDA estable 8%–13%** (2019–2025*) — el dato más sólido del análisis
+- **Endeudamiento en descenso** — de 2,71x a 1,75x (se desendeudó un 35%)
+- **Deuda/EBITDA 2,79x** — nivel seguro, de 5 años a menos de 3
+- **Liquidez Corriente recuperada a 1,51x** — con emisión de ONs
+- **Capital de Trabajo récord: $857.035M** — colchón de seguridad
+- **Fix SCR AAA(arg)** — máxima calificación crediticia
+- **Recomendación Favorable — Bajo Riesgo Crediticio**
+        """)
+
+        st.divider()
+
         st.warning(
             "Balance 2025* = corte intermedio 9 meses. "
             "ARCOR revierte pérdida 2024: utilidad $213.528M (6% ventas)."

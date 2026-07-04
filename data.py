@@ -24,7 +24,7 @@ FOOTNOTE = (
 
 SLIDE_TITLES = {
     1: "Portada Institucional",
-    2: "Síntesis del Informe y Metodología RT6",
+    2: "Metodología RT6",
     3: "Análisis de Rentabilidad Operativa y Comercial",
     4: "Indicadores de Liquidez",
     5: "Capital de Trabajo y Brecha Operativa (OCF)",
