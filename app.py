@@ -225,41 +225,6 @@ def main():
     elif section == "Conclusión":
         render_slide_9(data, st.container())
 
-    # Navegación por teclado: ← → entre tabs y secciones
-    st.markdown(
-        """
-        <img src onerror="
-        (function(){
-            var S=['Presentacion','Rentabilidad','Liquidez','Endeudamiento','Variaciones','Conclusion'];
-            document.addEventListener('keydown',function(e){
-                if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
-                if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
-                var d=e.key==='ArrowRight'?1:-1;
-                var tabs=document.querySelectorAll('.stTabs button[role=tab]');
-                var active=Array.from(tabs).find(function(t){return t.getAttribute('aria-selected')==='true'});
-                if(active&&tabs.length>1){
-                    var sibs=Array.from(active.parentElement.querySelectorAll('button[role=tab]'));
-                    var i=sibs.indexOf(active);
-                    var n=sibs[i+d];
-                    if(n){n.click();e.preventDefault();return;}
-                }
-                var sb=document.querySelector('[data-testid=stSidebar]');
-                if(!sb)return;
-                var radios=Array.from(sb.querySelectorAll('.stRadio label'));
-                var ar=radios.find(function(r){return r.getAttribute('data-checked')==='true'});
-                if(!ar)return;
-                var idx=S.findIndex(function(s){return ar.textContent.trim().startsWith(s)});
-                var ns=S[idx+d];
-                if(!ns)return;
-                var nr=radios.find(function(r){return r.textContent.trim().startsWith(ns)});
-                if(nr){nr.click();e.preventDefault();}
-            });
-        })()
-        " style="display:none">
-        """,
-        unsafe_allow_html=True,
-    )
-
 
 if __name__ == "__main__":
     main()
