@@ -1012,23 +1012,41 @@ def render_slide_8(data, container):
 
 def render_slide_9(data, container):
     with container:
-        st.warning(
-            "Balance 2025* = corte intermedio 9 meses. "
-            "ARCOR revierte pérdida 2024: utilidad $213.528M (6% ventas)."
-        )
+        col_hits, col_seal = st.columns([1, 1])
 
-        # Sello de dictamen compacto
-        st.markdown(
-            f"<div style='text-align:center; background:#f8fafc; "
-            f"padding:1rem; border-radius:8px; "
-            f"border:3px solid {COLORS['gold']}; margin:0.5rem 0;'>"
-            f"<h2 style='color:{COLORS['gold']}; margin:0; font-size:1.4rem;'>"
-            f"RECOMENDACION FAVORABLE — BAJO RIESGO CREDITICIO</h2>"
-            f"<p style='color:#475569; font-size:0.9rem; margin:0.3rem 0;'>"
-            f"Obligaciones Negociables Clases 5 y 6</p>"
-            f"</div>",
-            unsafe_allow_html=True,
-        )
+        with col_hits:
+            st.subheader("Síntesis del Análisis")
+            st.markdown("""
+- **Margen EBITDA estable 8%–13%** — pilar operativo inquebrantable
+- **Endeudamiento en descenso** — de 2,71x a 1,75x (-35%)
+- **Deuda/EBITDA 2,79x** — nivel seguro
+- **Liquidez recuperada** — 1,51x con Capital de Trabajo récord
+- **Fix SCR AAA(arg)** — respaldo de calificadora
+            """)
+
+        with col_seal:
+            st.warning(
+                "Balance 2025* = corte 9 meses. "
+                "ARCOR revierte pérdida 2024: utilidad $213.528M (6% ventas)."
+            )
+
+            st.markdown(
+                f"<div style='text-align:center; background:#f8fafc; "
+                f"padding:1rem; border-radius:8px; "
+                f"border:3px solid {COLORS['gold']}; margin:0.5rem 0;'>"
+                f"<h2 style='color:{COLORS['gold']}; margin:0; font-size:1.3rem;'>"
+                f"RECOMENDACIÓN FAVORABLE<br>BAJO RIESGO CREDITICIO</h2>"
+                f"<p style='color:#475569; font-size:0.8rem; margin:0.3rem 0;'>"
+                f"Obligaciones Negociables Clases 5 y 6</p>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+
+            c1, c2 = st.columns(2)
+            with c1:
+                st.caption("**Fix SCR** — AAA(arg)")
+            with c2:
+                st.caption("**Moody's** — EBITDA 8-10%")
 
     _render_footer(container)
 
