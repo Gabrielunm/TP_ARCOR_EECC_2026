@@ -13,8 +13,8 @@
 **D1c — Integración Vertical**
 > "Punto clave: **integración vertical**. ARCOR fabrica todo —envases (Cartocor), galletitas (Bagley), conservas (La Campagnola), lácteos (Mastellone)—. Control total de la cadena de valor, eso la protege de proveedores y reduce costos."
 
-**D2 — Metodología RT6**
-> "Todos los valores están reexpresados a moneda homogénea (RT6). Sin este ajuste, la inflación argentina hace incomparables los números. **Limitación:** 2025* son solo 9 meses (enero-septiembre), balance intermedio."
+*(Se menciona al hablar, no está en pantalla)*
+> "Todo está ajustado por inflación bajo RT6. 2025* son solo 9 meses. Los valores están en moneda homogénea."
 
 ---
 

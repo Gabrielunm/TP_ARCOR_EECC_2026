@@ -18,8 +18,9 @@ COLORS = {
 }
 
 FOOTNOTE = (
-    "*2025: corresponde a los primeros 9 meses del año (enero-septiembre), "
-    "según balance intermedio acumulado al 30/09/2025."
+    "Ajustado por inflación bajo RT6. "
+    "*2025: enero-septiembre (balance intermedio). "
+    "Importes en millones de $ homogéneos sep2025."
 )
 
 SLIDE_TITLES = {
