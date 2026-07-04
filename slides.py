@@ -955,34 +955,6 @@ def render_slide_9(data, container):
             unsafe_allow_html=True,
         )
 
-        # Fundamentación compacta en 3 columnas
-        col_f1, col_f2, col_f3 = st.columns(3)
-        with col_f1:
-            st.markdown(
-                "**Minimo riesgo de incumplimiento**  \n"
-                "Margen EBITDA firme **8% a 13%**",
-                help="El EBITDA refleja la solidez operativa real de ARCOR"
-            )
-        with col_f2:
-            st.markdown(
-                "**Solido respaldo patrimonial**  \n"
-                "Solvencia **0,57** — Deuda/EBITDA **2,79x**",
-                help="Indicadores de solvencia en niveles seguros"
-            )
-        with col_f3:
-            st.markdown(
-                "**Excelente gestion de pasivos**  \n"
-                "Liquidez **1,51** — Cap. Trabajo **$857.035M**",
-                help="Colchon de seguridad operativa para pago a acreedores"
-            )
-
-        # Validación independiente
-        c1, c2 = st.columns(2)
-        with c1:
-            st.caption("**Fix SCR** — AAA(arg) — maxima calidad crediticia en Argentina")
-        with c2:
-            st.caption("**Moody's Local Argentina** — calificaciones afirmadas, EBITDA 8-10%")
-
     _render_footer(container)
 
 
