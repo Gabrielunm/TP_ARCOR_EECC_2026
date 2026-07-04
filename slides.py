@@ -149,32 +149,29 @@ def render_slide_1(data, container):
                             use_container_width=True,
                         )
 
-        st.markdown("### Análisis de Estados Contables — ARCOR S.A.I.C.")
-        st.caption(
-            "Evaluación de Riesgo Crediticio e Inversión en "
-            "Obligaciones Negociables (Clases 5 y 6)"
+        st.markdown("## Análisis de Estados Contables — ARCOR S.A.I.C.")
+        st.markdown(
+            "**Evaluación de Riesgo Crediticio e Inversión en "
+            "Obligaciones Negociables (Clases 5 y 6)**"
         )
 
         st.markdown(
             f"<div style='text-align:center; background:{COLORS['navy']}; "
-            f"padding:0.8rem; border-radius:8px; margin:0.8rem 0;'>"
-            f"<h2 style='color:white; margin:0; font-size:1.6rem;'>"
-            f"Período 2019 — 2025*</h2>"
-            f"<p style='color:#e2e8f0; margin:0; font-size:0.9rem;'>"
+            f"padding:0.6rem; border-radius:8px; margin:0.6rem 0;'>"
+            f"<h3 style='color:white; margin:0; font-size:1.3rem;'>"
+            f"Período 2019 — 2025*</h3>"
+            f"<p style='color:#e2e8f0; margin:0; font-size:0.8rem;'>"
             f"enero-septiembre · valores en moneda homogénea (RT6)</p>"
             f"</div>",
             unsafe_allow_html=True,
         )
 
-        # Metadata compacta
-        col_a, col_b = st.columns(2)
-        with col_a:
-            st.markdown("**CUIT** 30-50279317-5  \n**DESTINATARIO** Acreedores Financieros")
-        with col_b:
-            st.markdown(
-                "**ANALISTAS** Arpires Anael, Galván Ariadna, "
-                "Godoy Karla, Lopez Natalia, Quiroga Gabriel"
-            )
+        # Metadata secundaria (chico, no roba atención)
+        st.caption(
+            "CUIT 30-50279317-5 · Destinatario: Acreedores Financieros · "
+            "Analistas: Arpires Anael, Galván Ariadna, Godoy Karla, "
+            "Lopez Natalia, Quiroga Gabriel"
+        )
 
     _render_footer(container)
 
@@ -193,6 +190,10 @@ def render_slide_empresa(data, container):
 - **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley (51% Danone)
 - **Calificación:** Fix SCR AAA(arg) — máxima calidad crediticia en Argentina
         """)
+
+        st.markdown("**Integración vertical** — Cartocor (envases), Bagley (galletitas), "
+                    "La Campagnola (conservas), Mastellone 43% (lácteos), "
+                    "agronegocios propios. Controla toda la cadena de valor.")
 
         st.info("**¿Por qué analizamos ARCOR?**  \n"
                 "Emisión de Obligaciones Negociables Clases 5 y 6. "
