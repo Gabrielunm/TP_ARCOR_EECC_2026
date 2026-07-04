@@ -24,15 +24,16 @@ FOOTNOTE = (
 
 SLIDE_TITLES = {
     1: "Portada Institucional",
-    2: "Metodología RT6",
-    3: "Análisis de Rentabilidad Operativa y Comercial",
-    4: "Indicadores de Liquidez",
-    5: "Capital de Trabajo y Brecha Operativa (OCF)",
-    6: "Estructura de Capital y Paradoja Inflacionaria",
-    7: "Apalancamiento y Coberturas Financieras",
-    8: "Variaciones Patrimoniales, Actividad y Comparativa de Mercado",
-    9: "Limitaciones y Dictamen de Inversión",
-    10: "Rotación y Eficiencia Operativa",
+    2: "Sobre la Empresa",
+    3: "Metodología RT6",
+    4: "Análisis de Rentabilidad Operativa y Comercial",
+    5: "Indicadores de Liquidez",
+    6: "Capital de Trabajo y Brecha Operativa (OCF)",
+    7: "Estructura de Capital y Paradoja Inflacionaria",
+    8: "Apalancamiento y Coberturas Financieras",
+    9: "Variaciones Patrimoniales, Actividad y Comparativa de Mercado",
+    10: "Limitaciones y Dictamen de Inversión",
+    11: "Rotación y Eficiencia Operativa",
 }
 
 EXCEL_PATH = "balances_ARCOR.xlsx"

@@ -172,6 +172,29 @@ def render_slide_1(data, container):
     _render_footer(container)
 
 
+# ── Slide 1b: Sobre la Empresa ────────────────────────────────────────────────
+
+def render_slide_empresa(data, container):
+    with container:
+        st.subheader("Grupo Arcor")
+        st.markdown("""
+- **Rubro:** Alimentación — alimentos de consumo masivo, agronegocios y packaging
+- **Fundación:** 1951 en Arroyito, Córdoba (conjunción de *Ar*royito + *Cór*doba)
+- **Presencia global:** 49 plantas industriales, oficinas en 4 continentes, +20.000 empleados
+- **Exporta a más de 100 países** — principal exportador de golosinas de Argentina, Chile y Perú
+- **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley (51% Danone)
+- **Calificación:** Fix SCR AAA(arg) — máxima calidad crediticia en Argentina
+
+        """)
+
+        st.info("**¿Por qué analizamos ARCOR?**  \n"
+                "Emisión de Obligaciones Negociables Clases 5 y 6. "
+                "Evaluamos su capacidad de pago y riesgo crediticio "
+                "mediante el análisis de Estados Contables 2019–2025*.")
+
+    _render_footer(container)
+
+
 # ── Slide 2: Síntesis + RT6 ──────────────────────────────────────────────────
 
 def render_slide_2(data, container):

@@ -10,7 +10,7 @@
 
 | Sección | Dispositivas | Mensaje central |
 |---|---|---|
-| Presentación | 1, 2 | Contexto y metodología |
+| Presentación | 1, 1b, 2 | Contexto, empresa y metodología |
 | Rentabilidad | 3, 10 | ROA/ROE son engañosos; el EBITDA muestra la verdad |
 | Liquidez | 4, 5 | Liquidez recuperada con las ONs; OCF Ratio alerta pero Capital de Trabajo récord |
 | Endeudamiento | 6, 7 | ARCOR se desendeudó; la Deuda/EBITDA es segura |
@@ -30,6 +30,21 @@
 - Período 2019-2025*
 
 > Presentamos el análisis de ARCOR S.A.I.C., período 2019-2025*, para acreedores financieros por las ONs Clases 5 y 6.
+
+---
+
+## DISPOSITIVA 1b — Sobre la Empresa
+
+*Sin indicadores.*
+
+**Grupo Arcor:**
+- **Rubro:** Alimentación — alimentos de consumo masivo, agronegocios y packaging
+- **Fundación:** 1951 en Arroyito, Córdoba
+- **Presencia global:** 49 plantas, +20.000 empleados, exporta a +100 países
+- **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley
+- **Calificación:** Fix SCR AAA(arg)
+
+> **Lo que hay que decir:** ARCOR es el principal grupo alimenticio argentino, con presencia global y calificación AAA(arg). Analizamos sus Estados Contables 2019-2025* para evaluar riesgo crediticio de las ONs Clases 5 y 6.
 
 ---
 
