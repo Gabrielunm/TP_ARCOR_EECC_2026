@@ -47,12 +47,6 @@ def _apply_chart_layout(fig, title="", hovermode="x unified"):
     return fig
 
 
-def _add_crisis_vline(fig):
-    """Línea vertical punteada que separa Pandemia (2020-21) de Recesión (2023-25)."""
-    fig.add_vline(x=2.5, line_color="#94a3b8", line_width=1.5, line_dash="dash")
-    return fig
-
-
 def _render_footer(container):
     """Append footnote + separator al final de un slide."""
     with container:
@@ -331,7 +325,6 @@ def render_slide_3(data, container):
             ))
 
             fig = _apply_chart_layout(fig, title="ROA, ROE y Margen EBITDA (%)")
-            _add_crisis_vline(fig)
             fig.update_yaxes(title_text="Porcentaje", tickformat=".1f")
             fig.update_layout(height=250)
             st.plotly_chart(fig, use_container_width=True)
@@ -433,7 +426,6 @@ def render_slide_4(data, container):
                 fig,
                 title="Liquidez Corriente vs Prueba Ácida",
             )
-            _add_crisis_vline(fig)
             fig.update_yaxes(title_text="Veces")
             fig.update_layout(barmode="group", bargap=0.25, height=250)
             st.plotly_chart(fig, use_container_width=True)
@@ -533,7 +525,6 @@ def render_slide_5(data, container):
                           annotation_text="Referencia 2025*")
             
             fig = _apply_chart_layout(fig, title="OCF Ratio y Capital de Trabajo")
-            _add_crisis_vline(fig)
             fig.update_layout(
                 height=250,
                 yaxis=dict(title_text="OCF Ratio (veces)", side="left"),
@@ -635,7 +626,6 @@ def render_slide_6(data, container):
             ))
 
             fig = _apply_chart_layout(fig, title="Endeudamiento y Solvencia")
-            _add_crisis_vline(fig)
             fig.update_yaxes(title_text="Veces")
             fig.update_layout(height=250)
             st.plotly_chart(fig, use_container_width=True)
@@ -731,7 +721,6 @@ def render_slide_7(data, container):
             ))
 
             fig = _apply_chart_layout(fig, title="Apalancamiento y Deuda/EBITDA")
-            _add_crisis_vline(fig)
             fig.update_layout(
                 height=250,
                 yaxis=dict(title_text="Leverage (ROA / Costo Fin.)", side="left"),
@@ -845,7 +834,6 @@ def render_slide_8(data, container):
                 ))
                 fig.add_hline(y=0, line_color="#cbd5e1", line_dash="dash")
                 fig = _apply_chart_layout(fig, title="Variación % de Ventas Reales y Utilidad Bruta")
-                _add_crisis_vline(fig)
                 fig.update_yaxes(title_text="Variación %")
                 fig.update_layout(height=250)
                 st.plotly_chart(fig, use_container_width=True)
@@ -947,7 +935,6 @@ def render_slide_8(data, container):
                     fig,
                     title="ARCOR vs INDEC — Variación % Ventas (2019-2024)",
                 )
-                _add_crisis_vline(fig)
                 fig.update_yaxes(title_text="Variación %")
                 fig.update_layout(barmode="group", bargap=0.3, height=250)
                 st.plotly_chart(fig, use_container_width=True)
@@ -1130,7 +1117,6 @@ def render_slide_10(data, container):
             ))
 
             fig = _apply_chart_layout(fig, title="Rotación de Activos y Pasivos")
-            _add_crisis_vline(fig)
             fig.update_layout(
                 height=250,
                 yaxis=dict(title_text="Rot. Activos (veces)", side="left"),
