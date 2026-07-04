@@ -768,8 +768,8 @@ def render_slide_8(data, container):
     with container:
         tab1, tab2, tab3 = st.tabs([
             "Var Ventas y Utilidad Bruta",
-            "ARCOR vs INDEC",
             "Flujo de Efectivo",
+            "ARCOR vs INDEC",
         ])
 
         # ── Tab 1: Var Ventas + Var UB ──
@@ -867,8 +867,8 @@ def render_slide_8(data, container):
                     "2023-2025*: erosion recesion en ventas."
                 )
 
-        # ── Tab 2: ARCOR vs INDEC ──
-        with tab2:
+        # ── Tab 3: ARCOR vs INDEC ──
+        with tab3:
             col_chart, col_metric = st.columns([2, 1])
 
             with col_chart:
@@ -965,8 +965,8 @@ def render_slide_8(data, container):
                     ("2024 Recesion", "ARCOR +5.46% vs mercado. Consumidores priorizan marcas lideres (TP p.78-79)"),
                 ])
 
-        # ── Tab 3: Flujo de Efectivo (tabla coloreada) ──
-        with tab3:
+        # ── Tab 2: Flujo de Efectivo ──
+        with tab2:
             cf = data["cashflow"].copy()
             cf["Anio_label"] = cf["Anio"].apply(_normalize_year_label)
 
