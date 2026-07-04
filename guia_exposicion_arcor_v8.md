@@ -33,19 +33,13 @@
 
 ---
 
-## DISPOSITIVA 2 — Síntesis y Metodología RT6
+## DISPOSITIVA 2 — Metodología RT6
 
 *Sin indicadores.*
 
-**Lo que se destaca solo:**
-- Margen EBITDA estable 8%-13% — el dato más sólido
-- Endeudamiento en descenso — de 2,71x a 1,75x
-- Deuda/EBITDA 2,79x — nivel seguro
-- Fix SCR AAA(arg)
-
 **Lo que se explica:** RT6 — reexpresión a moneda homogénea. Sin esto, la inflación distorsiona todo. Coeficientes: 2019 = 33,11 | 2024 = 1,22.
 
-> Aplicamos RT6 para homogeneizar los balances. Sin este ajuste, la inflación argentina hace incomparables los números. Adelanto: ARCOR tiene EBITDA estable, deuda controlada y calificación AAA(arg).
+> Aplicamos RT6 para homogeneizar los balances. Sin este ajuste, la inflación argentina hace incomparables los números.
 
 ---
 
@@ -229,7 +223,14 @@
 
 ---
 
-## DISPOSITIVA 9 — Dictamen
+## DISPOSITIVA 9 — Síntesis y Dictamen
+
+**Síntesis del análisis:**
+
+- **Margen EBITDA estable 8%-13%** — el dato más sólido de todo el análisis. Siete años, dos crisis, y la operación apenas se movió.
+- **Endeudamiento en descenso** — de 2,71x a 1,75x. ARCOR se desendeudó un 35%.
+- **Deuda/EBITDA 2,79x** — nivel seguro. De necesitar 5 años de EBITDA a necesitar menos de 3.
+- **Fix SCR AAA(arg)** — la calificación más alta. Respalda el análisis.
 
 **Mensaje central: RECOMENDACIÓN FAVORABLE. Tres pilares, bajo riesgo.**
 
@@ -242,7 +243,7 @@
   3. Liquidez 1,51 | Capital de Trabajo $857.035M
 - Fix SCR AAA(arg) | Moody's: EBITDA 8-10%
 
-> **Lo que hay que decir:** Dictamen FAVORABLE. Tres razones: margen operativo sólido, deuda controlada, liquidez recuperada. Fix SCR y Moody's lo confirman con AAA(arg). El riesgo de incumplimiento es mínimo. Gracias.
+> **Lo que hay que decir:** Sinopsis: margen EBITDA sólido y estable, deuda controlada con tendencia decreciente, liquidez recuperada. Dictamen FAVORABLE — riesgo bajo. Fix SCR y Moody's confirman con AAA(arg). El riesgo de incumplimiento es mínimo. Gracias.
 
 ---
 
