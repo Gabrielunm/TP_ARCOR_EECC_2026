@@ -191,7 +191,7 @@ def main():
     data = load_data()
 
     if section == "Presentación":
-        tabs = st.tabs(["Carátula", "Síntesis + RT6"])
+        tabs = st.tabs(["Carátula", "Metodología RT6"])
         with tabs[0]:
             render_slide_1(data, st.container())
         with tabs[1]:
