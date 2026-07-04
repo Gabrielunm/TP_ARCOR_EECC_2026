@@ -49,12 +49,7 @@ def _apply_chart_layout(fig, title="", hovermode="x unified"):
 
 def _add_crisis_vline(fig):
     """Línea vertical punteada que separa Pandemia (2020-21) de Recesión (2023-25)."""
-    fig.add_shape(
-        type="line", yref="paper",
-        x0=2.5, x1=2.5, y0=0, y1=1,
-        line=dict(color="#94a3b8", width=1.5, dash="dash"),
-        layer="below",
-    )
+    fig.add_vline(x=2.5, line_color="#94a3b8", line_width=1.5, line_dash="dash")
     return fig
 
 
