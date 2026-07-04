@@ -965,43 +965,45 @@ def render_slide_8(data, container):
                     ("2024 Recesion", "ARCOR +5.46% vs mercado. Consumidores priorizan marcas lideres (TP p.78-79)"),
                 ])
 
-        # ── Tab 3: Flujo de Efectivo (Waterfall) ──
+        # ── Tab 3: Flujo de Efectivo (tabla coloreada) ──
         with tab3:
             cf = data["cashflow"].copy()
             cf["Anio_label"] = cf["Anio"].apply(_normalize_year_label)
 
-            year_opts = cf["Anio_label"].tolist()
-            selected_year = st.selectbox("Año", year_opts, index=len(year_opts) - 1, label_visibility="collapsed")
+            rows_data = [
+                ("Act. Operativa", "Act_Operativa"),
+                ("Act. Inversión", "Act_Inversion"),
+                ("Act. Financiación", "Act_Financiacion"),
+                ("Variación Total", "Var_Efectivo"),
+            ]
 
-            row = cf[cf["Anio_label"] == selected_year].iloc[0]
-            labels = ["Act. Operativa", "Act. Inversión", "Act. Financiación", "Variación Total"]
-            values = [row["Act_Operativa"], row["Act_Inversion"], row["Act_Financiacion"], row["Var_Efectivo"]]
+            html = """<div style="overflow-x:auto;">
+            <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+                <thead><tr style="background:#1e3a5f; color:white;">
+                    <th style="padding:8px; text-align:left;">Actividad</th>"""
+            for label in cf["Anio_label"]:
+                html += f'<th style="padding:8px; text-align:center;">{label}</th>'
+            html += "</tr></thead><tbody>"
 
-            fig = go.Figure(go.Waterfall(
-                name="",
-                orientation="v",
-                measure=["relative", "relative", "relative", "total"],
-                x=labels,
-                y=values,
-                text=[f"${v:,.0f}M" for v in values],
-                textposition="outside",
-                connector=dict(line=dict(color="#94a3b8", width=2)),
-                decreasing=dict(marker=dict(color="#ef4444")),
-                increasing=dict(marker=dict(color="#22c55e")),
-                totals=dict(marker=dict(color="#267dc4")),
-            ))
-            fig = _apply_chart_layout(fig, title=f"Flujo de Efectivo {selected_year} ($M)")
-            fig.update_layout(height=300, showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
+            for row_name, col_key in rows_data:
+                html += f'<tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:8px; font-weight:600;">{row_name}</td>'
+                for _, r in cf.iterrows():
+                    val = r[col_key]
+                    color = "#22c55e" if val >= 0 else "#ef4444"
+                    html += f'<td style="padding:8px; text-align:center; color:{color}; font-weight:600;">${val:,.0f}M</td>'
+                html += "</tr>"
 
-            c1, c2, c3 = st.columns(3)
-            with c1:
-                delta_op = "" if row["Act_Operativa"] >= 0 else "neg"
-                st.metric("Act. Operativa", f"${row['Act_Operativa']:,.0f}M", delta=delta_op)
-            with c2:
-                st.metric("Act. Inversión", f"${row['Act_Inversion']:,.0f}M")
-            with c3:
-                st.metric("Act. Financiación", f"${row['Act_Financiacion']:,.0f}M")
+            html += "</tbody></table></div>"
+            st.markdown(html, unsafe_allow_html=True)
+
+            insight = []
+            last = cf["Var_Efectivo"].iloc[-1]
+            insight.append(f"**2025\\*:** Variación total **${last:,.0f}M**")
+            worst_idx = cf["Var_Efectivo"].idxmin()
+            insight.append(f"**Peor año:** {cf.loc[worst_idx, 'Anio_label']} ({cf.loc[worst_idx, 'Var_Efectivo']:,.0f}M)")
+            best_idx = cf["Var_Efectivo"].idxmax()
+            insight.append(f"**Mejor año:** {cf.loc[best_idx, 'Anio_label']} ({cf.loc[best_idx, 'Var_Efectivo']:,.0f}M)")
+            st.info(" | ".join(insight))
 
     _render_footer(container)
 
