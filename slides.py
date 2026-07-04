@@ -187,6 +187,7 @@ def render_slide_empresa(data, container):
 - **Presencia global:** 49 plantas industriales, oficinas en 4 continentes, +20.000 empleados
 - **Líder mundial en caramelos duros** — produce +2 millones de kilos al año, exporta a más de 120 países
 - **Principal exportador de golosinas** de Argentina, Chile y Perú
+- **~30% de ventas en USD** — subsidiarias en el exterior + exportación directa cubren holgadamente la deuda internacional (Fix SCR)
 - **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley (51% Danone)
 - **Calificación:** Fix SCR AAA(arg) — máxima calidad crediticia en Argentina
         """)
@@ -208,13 +209,46 @@ def render_slide_empresa(data, container):
 def render_slide_integracion(data, container):
     with container:
         st.subheader("Integración Vertical")
-        st.markdown("""
-- **Cartocor, Zucamor, Converflex** — producen sus propios envases, cartón y packaging
-- **Bagley** (51% Arcor + Danone) — galletitas y cereales, líder en Latinoamérica
+
+        col1, col2 = st.columns([1, 1])
+
+        with col1:
+            st.markdown("""
+- **Cartocor, Zucamor, Converflex** — producen sus propios envases, cartón y packaging (~22% ventas)
+- **Bagley** (51% Arcor + Danone) — galletitas y cereales, líder en Latinoamérica (~23% ventas)
 - **La Campagnola** — conservas, dulces, salsas y puré de tomates
 - **Mastellone Hnos.** (43%) — lácteos (La Serenísima)
-- **Agronegocios propios** — materia prima desde el campo hasta el producto final
-        """)
+- **Agronegocios propios** — materia prima desde el campo hasta el producto final (~14% ventas)
+- **Golosinas y Chocolates** — caramelos duros, chicles, chocolates (~32% ventas, líder mundial)
+            """)
+
+        with col2:
+            # Donut chart de distribución por segmento (Moody's Local Argentina 2024)
+            segments = ["Golosinas y\nChocolates", "Galletas\n(Bagley)", "Packaging\n(Cartocor)", "Agronegocios"]
+            values = [32, 23, 22, 14]
+            colors = [COLORS["navy"], COLORS["gold"], COLORS["green"], "#94a3b8"]
+
+            fig = go.Figure(data=[go.Pie(
+                labels=segments, values=values,
+                hole=0.5,
+                marker=dict(colors=colors, line=dict(color=COLORS["bg"], width=2)),
+                textinfo="label+percent",
+                textfont=dict(color="white", size=10),
+                hovertemplate="%{label}<br>%{percent} de ventas<extra></extra>",
+            )])
+            fig.update_layout(
+                title=dict(
+                    text="Ventas por Segmento (2024)",
+                    font=dict(color=COLORS["white"], size=14),
+                    x=0.5,
+                ),
+                paper_bgcolor=COLORS["bg"],
+                plot_bgcolor=COLORS["bg"],
+                height=260,
+                margin=dict(l=10, r=10, t=40, b=10),
+                showlegend=False,
+            )
+            st.plotly_chart(fig, use_container_width=True)
 
         st.success(
             "**¿Por qué importa?**  \n"

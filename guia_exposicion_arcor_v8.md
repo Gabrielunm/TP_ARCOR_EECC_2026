@@ -42,6 +42,7 @@
 - **Fundación:** 1951 en Arroyito, Córdoba
 - **Presencia global:** 49 plantas, +20.000 empleados, exporta a +120 países
 - **Líder mundial en caramelos duros** — produce +2 millones de kilos al año
+- **~30% de ventas en USD** — subsidiarias + exportaciones cubren la deuda internacional (Fix SCR)
 - **Marcas principales:** Águila, Noel, La Campagnola, Arcor, Bagley
 - **Calificación:** Fix SCR AAA(arg)
 
@@ -53,14 +54,17 @@
 
 *Sin indicadores.*
 
-**Subsidiarias clave:**
-- **Cartocor, Zucamor, Converflex** — envases, cartón y packaging
-- **Bagley** (51% Arcor + Danone) — galletitas y cereales
-- **La Campagnola** — conservas, dulces y salsas
-- **Mastellone Hnos.** (43%) — lácteos (La Serenísima)
-- **Agronegocios propios** — materia prima integrada
+**Distribución por segmento (Moody's Local 2024):**
+| Segmento | % Ventas | Subsidiaria principal |
+|---|---|---|
+| 🍬 Golosinas y Chocolates | **32%** | Líder mundial caramelos duros |
+| 🍪 Galletas | **23%** | Bagley (51% Arcor + Danone) |
+| 📦 Packaging | **22%** | Cartocor, Zucamor, Converflex |
+| 🌱 Agronegocios | **14%** | Campo propio |
 
-> **Lo que hay que decir:** Arcor no solo fabrica alimentos: fabrica el envase, el cartón, procesa la materia prima y distribuye. Eso la protege de proveedores, reduce costos y le da control sobre toda la cadena de valor. Es una ventaja competitiva clave frente a sus competidores.
+**Otras subsidiarias:** La Campagnola (conservas), Mastellone Hnos. 43% (lácteos).
+
+> **Lo que hay que decir:** La integración vertical no es un detalle menor —el 22% del negocio de ARCOR viene del packaging que produce ella misma. Sumado a los agronegocios (14%), más del 36% de sus ventas son de actividades integradas que la protegen de proveedores externos, reducen costos y le dan control sobre toda la cadena de valor. Las golosinas (32%) y galletas (23%) son los motores comerciales.
 
 ---
 
