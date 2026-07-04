@@ -811,247 +811,256 @@ def render_slide_7(data, container):
 
 # ── Slide 8: Variaciones Patrimoniales ───────────────────────────────────────
 
+def render_var_ventas_tab(data, container):
+    """Tab: Variación % de Ventas y Utilidad Bruta."""
+    with container:
+        col_chart, col_metric = st.columns([2, 1])
+
+        with col_chart:
+            df = data["var_ventas"].copy()
+            df["Anio_label"] = df["Anio"].apply(_normalize_year_label)
+            # Excluir 2019 (no hay datos de variación)
+            df = df[df["Anio_label"] != "2019"].copy()
+
+            # Contexto por punto (respaldado por TP p.61-66, 112-113)
+            vv_ctx = [
+                "2020: -3.48%, restricciones pandemia (TP p.62, 81, 112)",
+                "2021: +12.73%, recuperación por consumo refugio y exportaciones (TP p.62-63, 81)",
+                "2022: +6.54%, terreno positivo (TP p.63, 81)",
+                "2023: -1.61%, inicio recesión (TP p.64, 81)",
+                "2024: -5.54%, recesión severa (TP p.64, 81)",
+                "2025*: -7.80% acumulado 9 meses (TP p.65)",
+            ]
+            ub_ctx = [
+                "2020: +9.61%, pese a caída ventas, ajuste costos, margen bruto 32.88% (TP p.66-67, 81)",
+                "2021: +0.24% (TP p.66)",
+                "2022: +6.99% (TP p.66)",
+                "2023: -5.70% (TP p.66)",
+                "2024: -2.78%, mitiga caída ventas -5.54% por integración vertical (TP p.65-66, 81)",
+            ]
+
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                x=df["Anio_label"], y=df["Var_Ventas"] * 100,
+                name="Var % Ventas Reales",
+                marker_color=COLORS["navy"],
+                marker_line_color=COLORS["navy"],
+                marker_line_width=1.5,
+                customdata=vv_ctx,
+                hovertemplate="%{y:.2f}%<br>%{customdata}<extra></extra>",
+            ))
+            fig.add_trace(go.Scatter(
+                x=df["Anio_label"], y=df["Var_UB"] * 100,
+                name="Var % Utilidad Bruta",
+                mode="lines+markers",
+                line=dict(color=COLORS["gold"], width=4),
+                marker=dict(size=12, color=COLORS["gold"],
+                           line=dict(color="white", width=2)),
+                customdata=ub_ctx,
+                hovertemplate="%{y:.2f}%<br>%{customdata}<extra></extra>",
+            ))
+            fig.add_hline(y=0, line_color="#cbd5e1", line_dash="dash")
+            fig = _apply_chart_layout(fig, title="Variación % de Ventas Reales y Utilidad Bruta")
+            fig.update_yaxes(title_text="Variación %")
+            fig.update_layout(height=250)
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col_metric:
+            last_vv = df["Var_Ventas"].iloc[-1] * 100
+            last_ub = df["Var_UB"].dropna().iloc[-1] * 100
+
+            st.markdown(
+                _metric_card_html(
+                    "Var % Ventas 2025*",
+                    f"{last_vv:.2f}%",
+                    color=COLORS["red"],
+                ),
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                _metric_card_html(
+                    "Var % UB 2024",
+                    f"{last_ub:.2f}%",
+                    color=COLORS["red"],
+                ),
+                unsafe_allow_html=True,
+            )
+
+            st.markdown(
+                _formula_card_html(
+                    "Var % Ventas",
+                    "(Ventast / Ventast-1) - 1",
+                ),
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                _formula_card_html(
+                    "Var % UB",
+                    "(UBt / UBt-1) - 1",
+                ),
+                unsafe_allow_html=True,
+            )
+
+            st.caption(
+                "2020: shock pandemia (-3,48%). "
+                "2021: recuperacion (+12,73%). "
+                "2023-2025*: erosion recesion en ventas."
+            )
+
+
+def render_arcor_vs_indec_tab(data, container):
+    """Tab: ARCOR vs INDEC — Variación % Ventas."""
+    with container:
+        col_chart, col_metric = st.columns([2, 1])
+
+        with col_chart:
+            df = data["arcor_indec"].copy()
+            df["Anio_label"] = df["Anio"].apply(_normalize_year_label)
+
+            # Excluir 2025 porque INDEC no está disponible
+            df_plot = df[~df["Anio_label"].str.contains(r"\*", na=False)].copy()
+
+            # Contexto por punto (respaldado por TP p.76-79, 119)
+            arcor_ctx = [
+                "2019: dato base",
+                "2020: -3.48%, golosinas son productos discrecionales (TP p.76)",
+                "2021: +12.73%, recuperación fuerte (TP p.62-63)",
+                "2022: +6.54% (TP p.63)",
+                "2023: -1.61% (TP p.64)",
+                "2024: -5.54%, consumidores priorizan marcas líderes (TP p.78-79)",
+            ]
+            indec_ctx = [
+                "2019: -9.80% (TP p.76, 119)",
+                "2020: +0.80%, consumo concentrado en básicos (TP p.76)",
+                "2021: +1.50% (TP p.76, 119)",
+                "2022: +1.60% (TP p.76, 119)",
+                "2023: +0.90% (TP p.76, 119)",
+                "2024: -11.00%, caída del mercado general (TP p.78-79)",
+            ]
+
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                x=df_plot["Anio_label"],
+                y=df_plot["ARCOR"] * 100,
+                name="ARCOR Var % Ventas",
+                marker_color=COLORS["navy"],
+                marker_line_color=COLORS["navy"],
+                marker_line_width=1.5,
+                customdata=arcor_ctx,
+                hovertemplate="ARCOR: %{y:.2f}%<br>%{customdata}<extra></extra>",
+            ))
+            fig.add_trace(go.Bar(
+                x=df_plot["Anio_label"],
+                y=df_plot["INDEC"] * 100,
+                name="INDEC Supermercados",
+                marker_color=COLORS["gold"],
+                marker_line_color=COLORS["gold"],
+                marker_line_width=1.5,
+                customdata=indec_ctx,
+                hovertemplate="INDEC: %{y:.2f}%<br>%{customdata}<extra></extra>",
+            ))
+            fig.add_hline(y=0, line_color="#cbd5e1", line_dash="dash")
+            fig = _apply_chart_layout(
+                fig,
+                title="ARCOR vs INDEC — Variación % Ventas (2019-2024)",
+            )
+            fig.update_yaxes(title_text="Variación %")
+            fig.update_layout(barmode="group", bargap=0.3, height=250)
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col_metric:
+            # Calcular diferenciales clave
+            df_2020 = df_plot[df_plot["Anio_label"] == "2020"]
+            df_2024 = df_plot[df_plot["Anio_label"] == "2024"]
+            
+            if not df_2020.empty and not df_2024.empty:
+                diff_2020 = (df_2020["ARCOR"].iloc[0] - df_2020["INDEC"].iloc[0]) * 100
+                diff_2024 = (df_2024["ARCOR"].iloc[0] - df_2024["INDEC"].iloc[0]) * 100
+            else:
+                diff_2020 = 0
+                diff_2024 = 0
+
+            st.markdown(
+                _metric_card_html(
+                    "Diferencial 2020 (Pandemia)",
+                    f"{diff_2020:.2f}%",
+                    color=COLORS["red"],
+                ),
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                _metric_card_html(
+                    "Diferencial 2024 (Recesión)",
+                    f"+{diff_2024:.2f}%",
+                    color=COLORS["green"],
+                ),
+                unsafe_allow_html=True,
+            )
+
+            st.markdown(
+                _formula_card_html("Diferencial", "Var% ARCOR - Var% INDEC"),
+                unsafe_allow_html=True,
+            )
+
+            _explanation_row([
+                ("2020 Pandemia", "ARCOR -4.28% vs mercado. Golosinas son discrecionales (TP p.76)"),
+                ("2024 Recesion", "ARCOR +5.46% vs mercado. Consumidores priorizan marcas lideres (TP p.78-79)"),
+            ])
+
+
+def render_flujo_efectivo_tab(data, container):
+    """Tab: Flujo de Efectivo."""
+    with container:
+        cf = data["cashflow"].copy()
+        cf["Anio_label"] = cf["Anio"].apply(_normalize_year_label)
+
+        rows_data = [
+            ("Act. Operativa", "Act_Operativa"),
+            ("Act. Inversión", "Act_Inversion"),
+            ("Act. Financiación", "Act_Financiacion"),
+            ("Variación Total", "Var_Efectivo"),
+        ]
+
+        html = """<div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+            <thead><tr style="background:#1e3a5f; color:white;">
+                <th style="padding:8px; text-align:left;">Actividad</th>"""
+        for label in cf["Anio_label"]:
+            html += f'<th style="padding:8px; text-align:center;">{label}</th>'
+        html += "</tr></thead><tbody>"
+
+        for row_name, col_key in rows_data:
+            html += f'<tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:8px; font-weight:600;">{row_name}</td>'
+            for _, r in cf.iterrows():
+                val = r[col_key]
+                color = "#22c55e" if val >= 0 else "#ef4444"
+                html += f'<td style="padding:8px; text-align:center; color:{color}; font-weight:600;">${val:,.0f}M</td>'
+            html += "</tr>"
+
+        html += "</tbody></table></div>"
+        st.markdown(html, unsafe_allow_html=True)
+
+        insight = []
+        last = cf["Var_Efectivo"].iloc[-1]
+        insight.append(f"**2025\\*:** Variación total **${last:,.0f}M**")
+        worst_idx = cf["Var_Efectivo"].idxmin()
+        insight.append(f"**Peor año:** {cf.loc[worst_idx, 'Anio_label']} ({cf.loc[worst_idx, 'Var_Efectivo']:,.0f}M)")
+        best_idx = cf["Var_Efectivo"].idxmax()
+        insight.append(f"**Mejor año:** {cf.loc[best_idx, 'Anio_label']} ({cf.loc[best_idx, 'Var_Efectivo']:,.0f}M)")
+        st.info(" | ".join(insight))
+
+
 def render_slide_8(data, container):
+    """Wrapper que agrupa los 3 tabs de variaciones (usado desde app.py como tab)."""
     with container:
         tab1, tab2, tab3 = st.tabs([
             "Var Ventas y Utilidad Bruta",
             "Flujo de Efectivo",
             "ARCOR vs INDEC",
         ])
-
-        # ── Tab 1: Var Ventas + Var UB ──
-        with tab1:
-            col_chart, col_metric = st.columns([2, 1])
-
-            with col_chart:
-                df = data["var_ventas"].copy()
-                df["Anio_label"] = df["Anio"].apply(_normalize_year_label)
-                # Excluir 2019 (no hay datos de variación)
-                df = df[df["Anio_label"] != "2019"].copy()
-
-                # Contexto por punto (respaldado por TP p.61-66, 112-113)
-                vv_ctx = [
-                    "2020: -3.48%, restricciones pandemia (TP p.62, 81, 112)",
-                    "2021: +12.73%, recuperación por consumo refugio y exportaciones (TP p.62-63, 81)",
-                    "2022: +6.54%, terreno positivo (TP p.63, 81)",
-                    "2023: -1.61%, inicio recesión (TP p.64, 81)",
-                    "2024: -5.54%, recesión severa (TP p.64, 81)",
-                    "2025*: -7.80% acumulado 9 meses (TP p.65)",
-                ]
-                ub_ctx = [
-                    "2020: +9.61%, pese a caída ventas, ajuste costos, margen bruto 32.88% (TP p.66-67, 81)",
-                    "2021: +0.24% (TP p.66)",
-                    "2022: +6.99% (TP p.66)",
-                    "2023: -5.70% (TP p.66)",
-                    "2024: -2.78%, mitiga caída ventas -5.54% por integración vertical (TP p.65-66, 81)",
-                ]
-
-                fig = go.Figure()
-                fig.add_trace(go.Bar(
-                    x=df["Anio_label"], y=df["Var_Ventas"] * 100,
-                    name="Var % Ventas Reales",
-                    marker_color=COLORS["navy"],
-                    marker_line_color=COLORS["navy"],
-                    marker_line_width=1.5,
-                    customdata=vv_ctx,
-                    hovertemplate="%{y:.2f}%<br>%{customdata}<extra></extra>",
-                ))
-                fig.add_trace(go.Scatter(
-                    x=df["Anio_label"], y=df["Var_UB"] * 100,
-                    name="Var % Utilidad Bruta",
-                    mode="lines+markers",
-                    line=dict(color=COLORS["gold"], width=4),
-                    marker=dict(size=12, color=COLORS["gold"],
-                               line=dict(color="white", width=2)),
-                    customdata=ub_ctx,
-                    hovertemplate="%{y:.2f}%<br>%{customdata}<extra></extra>",
-                ))
-                fig.add_hline(y=0, line_color="#cbd5e1", line_dash="dash")
-                fig = _apply_chart_layout(fig, title="Variación % de Ventas Reales y Utilidad Bruta")
-                fig.update_yaxes(title_text="Variación %")
-                fig.update_layout(height=250)
-                st.plotly_chart(fig, use_container_width=True)
-
-            with col_metric:
-                last_vv = df["Var_Ventas"].iloc[-1] * 100
-                last_ub = df["Var_UB"].dropna().iloc[-1] * 100
-
-                st.markdown(
-                    _metric_card_html(
-                        "Var % Ventas 2025*",
-                        f"{last_vv:.2f}%",
-                        color=COLORS["red"],
-                    ),
-                    unsafe_allow_html=True,
-                )
-                st.markdown(
-                    _metric_card_html(
-                        "Var % UB 2024",
-                        f"{last_ub:.2f}%",
-                        color=COLORS["red"],
-                    ),
-                    unsafe_allow_html=True,
-                )
-
-                st.markdown(
-                    _formula_card_html(
-                        "Var % Ventas",
-                        "(Ventast / Ventast-1) - 1",
-                    ),
-                    unsafe_allow_html=True,
-                )
-                st.markdown(
-                    _formula_card_html(
-                        "Var % UB",
-                        "(UBt / UBt-1) - 1",
-                    ),
-                    unsafe_allow_html=True,
-                )
-
-                st.caption(
-                    "2020: shock pandemia (-3,48%). "
-                    "2021: recuperacion (+12,73%). "
-                    "2023-2025*: erosion recesion en ventas."
-                )
-
-        # ── Tab 3: ARCOR vs INDEC ──
-        with tab3:
-            col_chart, col_metric = st.columns([2, 1])
-
-            with col_chart:
-                df = data["arcor_indec"].copy()
-                df["Anio_label"] = df["Anio"].apply(_normalize_year_label)
-
-                # Excluir 2025 porque INDEC no está disponible
-                df_plot = df[~df["Anio_label"].str.contains(r"\*", na=False)].copy()
-
-                # Contexto por punto (respaldado por TP p.76-79, 119)
-                arcor_ctx = [
-                    "2019: dato base",
-                    "2020: -3.48%, golosinas son productos discrecionales (TP p.76)",
-                    "2021: +12.73%, recuperación fuerte (TP p.62-63)",
-                    "2022: +6.54% (TP p.63)",
-                    "2023: -1.61% (TP p.64)",
-                    "2024: -5.54%, consumidores priorizan marcas líderes (TP p.78-79)",
-                ]
-                indec_ctx = [
-                    "2019: -9.80% (TP p.76, 119)",
-                    "2020: +0.80%, consumo concentrado en básicos (TP p.76)",
-                    "2021: +1.50% (TP p.76, 119)",
-                    "2022: +1.60% (TP p.76, 119)",
-                    "2023: +0.90% (TP p.76, 119)",
-                    "2024: -11.00%, caída del mercado general (TP p.78-79)",
-                ]
-
-                fig = go.Figure()
-                fig.add_trace(go.Bar(
-                    x=df_plot["Anio_label"],
-                    y=df_plot["ARCOR"] * 100,
-                    name="ARCOR Var % Ventas",
-                    marker_color=COLORS["navy"],
-                    marker_line_color=COLORS["navy"],
-                    marker_line_width=1.5,
-                    customdata=arcor_ctx,
-                    hovertemplate="ARCOR: %{y:.2f}%<br>%{customdata}<extra></extra>",
-                ))
-                fig.add_trace(go.Bar(
-                    x=df_plot["Anio_label"],
-                    y=df_plot["INDEC"] * 100,
-                    name="INDEC Supermercados",
-                    marker_color=COLORS["gold"],
-                    marker_line_color=COLORS["gold"],
-                    marker_line_width=1.5,
-                    customdata=indec_ctx,
-                    hovertemplate="INDEC: %{y:.2f}%<br>%{customdata}<extra></extra>",
-                ))
-                fig.add_hline(y=0, line_color="#cbd5e1", line_dash="dash")
-                fig = _apply_chart_layout(
-                    fig,
-                    title="ARCOR vs INDEC — Variación % Ventas (2019-2024)",
-                )
-                fig.update_yaxes(title_text="Variación %")
-                fig.update_layout(barmode="group", bargap=0.3, height=250)
-                st.plotly_chart(fig, use_container_width=True)
-
-            with col_metric:
-                # Calcular diferenciales clave
-                df_2020 = df_plot[df_plot["Anio_label"] == "2020"]
-                df_2024 = df_plot[df_plot["Anio_label"] == "2024"]
-                
-                if not df_2020.empty and not df_2024.empty:
-                    diff_2020 = (df_2020["ARCOR"].iloc[0] - df_2020["INDEC"].iloc[0]) * 100
-                    diff_2024 = (df_2024["ARCOR"].iloc[0] - df_2024["INDEC"].iloc[0]) * 100
-                else:
-                    diff_2020 = 0
-                    diff_2024 = 0
-
-                st.markdown(
-                    _metric_card_html(
-                        "Diferencial 2020 (Pandemia)",
-                        f"{diff_2020:.2f}%",
-                        color=COLORS["red"],
-                    ),
-                    unsafe_allow_html=True,
-                )
-                st.markdown(
-                    _metric_card_html(
-                        "Diferencial 2024 (Recesión)",
-                        f"+{diff_2024:.2f}%",
-                        color=COLORS["green"],
-                    ),
-                    unsafe_allow_html=True,
-                )
-
-                st.markdown(
-                    _formula_card_html("Diferencial", "Var% ARCOR - Var% INDEC"),
-                    unsafe_allow_html=True,
-                )
-
-                _explanation_row([
-                    ("2020 Pandemia", "ARCOR -4.28% vs mercado. Golosinas son discrecionales (TP p.76)"),
-                    ("2024 Recesion", "ARCOR +5.46% vs mercado. Consumidores priorizan marcas lideres (TP p.78-79)"),
-                ])
-
-        # ── Tab 2: Flujo de Efectivo ──
-        with tab2:
-            cf = data["cashflow"].copy()
-            cf["Anio_label"] = cf["Anio"].apply(_normalize_year_label)
-
-            rows_data = [
-                ("Act. Operativa", "Act_Operativa"),
-                ("Act. Inversión", "Act_Inversion"),
-                ("Act. Financiación", "Act_Financiacion"),
-                ("Variación Total", "Var_Efectivo"),
-            ]
-
-            html = """<div style="overflow-x:auto;">
-            <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
-                <thead><tr style="background:#1e3a5f; color:white;">
-                    <th style="padding:8px; text-align:left;">Actividad</th>"""
-            for label in cf["Anio_label"]:
-                html += f'<th style="padding:8px; text-align:center;">{label}</th>'
-            html += "</tr></thead><tbody>"
-
-            for row_name, col_key in rows_data:
-                html += f'<tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:8px; font-weight:600;">{row_name}</td>'
-                for _, r in cf.iterrows():
-                    val = r[col_key]
-                    color = "#22c55e" if val >= 0 else "#ef4444"
-                    html += f'<td style="padding:8px; text-align:center; color:{color}; font-weight:600;">${val:,.0f}M</td>'
-                html += "</tr>"
-
-            html += "</tbody></table></div>"
-            st.markdown(html, unsafe_allow_html=True)
-
-            insight = []
-            last = cf["Var_Efectivo"].iloc[-1]
-            insight.append(f"**2025\\*:** Variación total **${last:,.0f}M**")
-            worst_idx = cf["Var_Efectivo"].idxmin()
-            insight.append(f"**Peor año:** {cf.loc[worst_idx, 'Anio_label']} ({cf.loc[worst_idx, 'Var_Efectivo']:,.0f}M)")
-            best_idx = cf["Var_Efectivo"].idxmax()
-            insight.append(f"**Mejor año:** {cf.loc[best_idx, 'Anio_label']} ({cf.loc[best_idx, 'Var_Efectivo']:,.0f}M)")
-            st.info(" | ".join(insight))
-
+        render_var_ventas_tab(data, tab1)
+        render_flujo_efectivo_tab(data, tab2)
+        render_arcor_vs_indec_tab(data, tab3)
     _render_footer(container)
 
 

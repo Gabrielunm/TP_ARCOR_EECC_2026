@@ -17,6 +17,9 @@ from slides import (
     render_slide_8,
     render_slide_9,
     render_slide_10,
+    render_var_ventas_tab,
+    render_flujo_efectivo_tab,
+    render_arcor_vs_indec_tab,
 )
 
 # ── Page config ──────────────────────────────────────────────────────────────
@@ -199,11 +202,9 @@ def main():
             render_slide_empresa(data, st.container())
 
     elif section == "Rentabilidad":
-        tabs = st.tabs(["Rentabilidad", "Rotación"])
+        tabs = st.tabs(["Rentabilidad"])
         with tabs[0]:
             render_slide_3(data, st.container())
-        with tabs[1]:
-            render_slide_10(data, st.container())
 
     elif section == "Liquidez":
         tabs = st.tabs(["Liquidez", "Cap. Trabajo + OCF"])
@@ -220,7 +221,20 @@ def main():
             render_slide_7(data, st.container())
 
     elif section == "Variaciones":
-        render_slide_8(data, st.container())
+        tabs = st.tabs([
+            "Var Ventas y Utilidad Bruta",
+            "Flujo de Efectivo",
+            "ARCOR vs INDEC",
+            "Rotación",
+        ])
+        with tabs[0]:
+            render_var_ventas_tab(data, st.container())
+        with tabs[1]:
+            render_flujo_efectivo_tab(data, st.container())
+        with tabs[2]:
+            render_arcor_vs_indec_tab(data, st.container())
+        with tabs[3]:
+            render_slide_10(data, st.container())
 
     elif section == "Conclusión":
         render_slide_9(data, st.container())
