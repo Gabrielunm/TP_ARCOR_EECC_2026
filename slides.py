@@ -924,19 +924,6 @@ def render_slide_8(data, container):
 
 def render_slide_9(data, container):
     with container:
-        st.subheader("Síntesis del Análisis")
-        st.markdown("""
-- **Margen EBITDA estable 8%–13%** (2019–2025*) — el dato más sólido del análisis
-- **Endeudamiento en descenso** — de 2,71x a 1,75x (se desendeudó un 35%)
-- **Deuda/EBITDA 2,79x** — nivel seguro, de 5 años a menos de 3
-- **Liquidez Corriente recuperada a 1,51x** — con emisión de ONs
-- **Capital de Trabajo récord: $857.035M** — colchón de seguridad
-- **Fix SCR AAA(arg)** — máxima calificación crediticia
-- **Recomendación Favorable — Bajo Riesgo Crediticio**
-        """)
-
-        st.divider()
-
         st.warning(
             "Balance 2025* = corte intermedio 9 meses. "
             "ARCOR revierte pérdida 2024: utilidad $213.528M (6% ventas)."
