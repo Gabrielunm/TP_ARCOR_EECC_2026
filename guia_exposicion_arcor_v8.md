@@ -10,7 +10,7 @@
 
 | Sección | Dispositivas | Mensaje central |
 |---|---|---|
-| Presentación | 1, 1b, 2 | Contexto, empresa y metodología |
+| Presentación | 1, 1b, 1c, 2 | Contexto, empresa, integración vertical y metodología |
 | Rentabilidad | 3, 10 | ROA/ROE son engañosos; el EBITDA muestra la verdad |
 | Liquidez | 4, 5 | Liquidez recuperada con las ONs; OCF Ratio alerta pero Capital de Trabajo récord |
 | Endeudamiento | 6, 7 | ARCOR se desendeudó; la Deuda/EBITDA es segura |
@@ -45,6 +45,21 @@
 - **Calificación:** Fix SCR AAA(arg)
 
 > **Lo que hay que decir:** ARCOR es el principal grupo alimenticio argentino, con presencia global y calificación AAA(arg). Analizamos sus Estados Contables 2019-2025* para evaluar riesgo crediticio de las ONs Clases 5 y 6.
+
+---
+
+## DISPOSITIVA 1c — Integración Vertical
+
+*Sin indicadores.*
+
+**Subsidiarias clave:**
+- **Cartocor, Zucamor, Converflex** — envases, cartón y packaging
+- **Bagley** (51% Arcor + Danone) — galletitas y cereales
+- **La Campagnola** — conservas, dulces y salsas
+- **Mastellone Hnos.** (43%) — lácteos (La Serenísima)
+- **Agronegocios propios** — materia prima integrada
+
+> **Lo que hay que decir:** Arcor no solo fabrica alimentos: fabrica el envase, el cartón, procesa la materia prima y distribuye. Eso la protege de proveedores, reduce costos y le da control sobre toda la cadena de valor. Es una ventaja competitiva clave frente a sus competidores.
 
 ---
 

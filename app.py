@@ -8,6 +8,7 @@ from data import load_data, SLIDE_TITLES
 from slides import (
     render_slide_1,
     render_slide_empresa,
+    render_slide_integracion,
     render_slide_2,
     render_slide_3,
     render_slide_4,
@@ -192,12 +193,14 @@ def main():
     data = load_data()
 
     if section == "Presentación":
-        tabs = st.tabs(["Carátula", "Sobre la Empresa", "Metodología RT6"])
+        tabs = st.tabs(["Carátula", "Perfil", "Integración Vertical", "Metodología RT6"])
         with tabs[0]:
             render_slide_1(data, st.container())
         with tabs[1]:
             render_slide_empresa(data, st.container())
         with tabs[2]:
+            render_slide_integracion(data, st.container())
+        with tabs[3]:
             render_slide_2(data, st.container())
 
     elif section == "Rentabilidad":

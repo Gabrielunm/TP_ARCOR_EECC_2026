@@ -195,6 +195,30 @@ def render_slide_empresa(data, container):
     _render_footer(container)
 
 
+# ── Slide 1c: Integración Vertical ─────────────────────────────────────────────
+
+def render_slide_integracion(data, container):
+    with container:
+        st.subheader("Integración Vertical")
+        st.markdown("""
+- **Cartocor, Zucamor, Converflex** — producen sus propios envases, cartón y packaging
+- **Bagley** (51% Arcor + Danone) — galletitas y cereales, líder en Latinoamérica
+- **La Campagnola** — conservas, dulces, salsas y puré de tomates
+- **Mastellone Hnos.** (43%) — lácteos (La Serenísima)
+- **Agronegocios propios** — materia prima desde el campo hasta el producto final
+        """)
+
+        st.success(
+            "**¿Por qué importa?**  \n"
+            "Arcor no solo fabrica alimentos: fabrica el envase, el cartón, "
+            "procesa la materia prima y distribuye. Eso la protege de "
+            "proveedores externos, reduce costos y le da control total "
+            "sobre la cadena de valor."
+        )
+
+    _render_footer(container)
+
+
 # ── Slide 2: Síntesis + RT6 ──────────────────────────────────────────────────
 
 def render_slide_2(data, container):
