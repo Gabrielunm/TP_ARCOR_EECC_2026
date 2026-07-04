@@ -803,7 +803,7 @@ def render_slide_7(data, container):
 
         _explanation_row([
             ("Leverage", "ROA / costo deuda. Volatil por TC e inflacion (97.31x en 2022 no es error)"),
-            ("Deuda/EBITDA", "Anios de EBITDA para pagar deuda. <3x es seguro. ARCOR: 2.79x"),
+            ("Deuda/EBITDA", "Años de EBITDA para pagar deuda. <3x es seguro. ARCOR: 2.79x"),
         ])
 
     _render_footer(container)
