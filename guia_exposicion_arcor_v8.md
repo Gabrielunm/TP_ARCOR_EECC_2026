@@ -225,7 +225,7 @@
 
 ---
 
-## DISPOSITIVA 8 — Variaciones y ARCOR vs INDEC
+## DISPOSITIVA 8 — Variaciones, Flujo de Efectivo y ARCOR vs INDEC
 
 **Mensaje central: pandemia fue un golpe con rebote; recesión es una erosión sin fin. Pero ARCOR resiste mejor que el mercado.**
 
