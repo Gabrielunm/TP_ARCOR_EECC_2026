@@ -1208,6 +1208,13 @@ def render_slide_10(data, container):
         _explanation_row([
             ("Rot. Activos", "1.34x = cada $1 en activos genera $1.34 en ventas. Estable 1.13-1.38x"),
             ("Rot. Pasivos", "2.11x = facturacion cubre 2x las deudas. Indica eficiencia operativa"),
+            ("Brecha RP - RA", "RP siempre > RA (A > P). La brecha se amplia cuando la inflacion licua pasivos (2022, 2024). Se contrae al tomar deuda nueva como las ONs (2025)."),
         ])
+        st.info(
+            "**Comportamiento de la brecha:** "
+            "RP sube mas que RA cuando la inflacion licua pasivos no indexados (2022, 2024). "
+            "La tendencia se invierte en 2025 porque la emision de ONs Clases 5 y 6 "
+            "aumento el Pasivo Total mas que el Activo, comprimiendo la brecha."
+        )
 
     _render_footer(container)

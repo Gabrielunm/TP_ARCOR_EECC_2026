@@ -131,6 +131,8 @@
 **¿Qué muestra?** Tendencia al alza: de 1,66x (2019) a 2,11x (2025*). Las ventas cubren cada vez más holgadamente las deudas. La inflación ayudó licuando pasivos.
 
 > **Lo que hay que decir:** ARCOR es eficiente. La rotación de activos apenas se movió en 7 años. Y hoy la facturación cubre más del doble de sus obligaciones totales.
+>
+> **Ojo con la brecha:** RP siempre es mayor que RA porque el Activo Total > Pasivo Total. Pero cuando esa brecha se amplía (como en 2022 y 2024) es porque la inflación está licuando pasivos no indexados —no porque ARCOR sea más eficiente—. Cuando se contrae (2025), es porque emitieron las ONs y aumentó el Pasivo. La brecha te dice si la empresa está acumulando deuda o la inflación se la está licuando.
 
 ---
 
